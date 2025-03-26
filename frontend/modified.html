@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Dashboard - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="menu">
+                <a href="home.html" class="menu-item active">Home</a>
+                <a href="index.html" class="menu-item">Patient Records</a>
+                <a href="appointments.html" class="menu-item">Appointments</a>
+                <a href="messages.html" class="menu-item">Messages</a>
+                <a href="settings.html" class="menu-item">Settings</a>
+                <a href="logout.html" class="menu-item">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Clinical Dashboard</h1>
+                <input type="text" placeholder="Search patient records, guidelines..." class="search-bar">
+                <button id="darkModeToggle">🌙</button>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="home-content">
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">142</div>
+                            <div class="stat-label">Active Patients</div>
+                            <div class="stat-trend">↑ 12% from last month</div>
+                        </div>
+                        <div class="stat-card critical">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Critical Alerts</div>
+                            <div class="stat-trend">3 new since yesterday</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">23</div>
+                            <div class="stat-label">Upcoming Appointments</div>
+                            <div class="stat-trend">Next: 9:00 AM (John D.)</div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Panel -->
+                    <div class="notifications-panel">
+                        <h2>Notifications</h2>
+                        <ul>
+                            <li>New patient added: Emily T.</li>
+                            <li>Appointment rescheduled for Dr. Smith</li>
+                            <li>System maintenance scheduled for Sunday</li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h2>Quick Access</h2>
+                        <div class="action-grid">
+                            <button class="action-card"><span class="icon">🩺</span>New Patient Entry</button>
+                            <button class="action-card"><span class="icon">📅</span>Schedule Appointment</button>
+                            <button class="action-card"><span class="icon">📊</span>View Analytics</button>
+                            <button class="action-card"><span class="icon">⚠️</span>Priority Cases</button>
+                        </div>
+                    </div>
+                    
+                    <div class="widgets-grid">
+                        <div class="widget-card">
+                            <h3>Recent Patient Activities</h3>
+                            <div class="activity-list">
+                                <div class="activity-item"><div class="activity-time">08:30 AM</div><div class="activity-text">Sarah M. - HbA1c updated (8.2 → 7.4)</div></div>
+                                <div class="activity-item"><div class="activity-time">10:15 AM</div><div class="activity-text">New lab results for Michael R.</div></div>
+                                <div class="activity-item"><div class="activity-time">11:45 AM</div><div class="activity-text">Medication alert: David K. (Allergy)</div></div>
+                            </div>
+                        </div>
+
+                        <div class="widget-card">
+                            <h3>Recent Messages</h3>
+                            <ul>
+                                <li>Dr. Smith: "Please check the updated records."</li>
+                                <li>Nurse Anna: "Critical alert for patient #234."</li>
+                                <li>Dr. Lee: "Can we schedule a meeting at 2 PM?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/router.js"></script>
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+
+        // Dark Mode Toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
